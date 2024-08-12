@@ -11,7 +11,7 @@ namespace TinhTienLaiNganHang
             double monney;
             float BankInterestRate;
             int month;
-            double profit;
+            double profit=0;
 
             Console.WriteLine("Tinh tien lai cua ngan hang");
             Console.WriteLine("***************************");
@@ -51,8 +51,12 @@ namespace TinhTienLaiNganHang
                     Console.Write("Nhap lai ky han muon gui (thang): ");
                 }
             }
-        profit=Math.Round(monney*((BankInterestRate/100)/12)*month,2);
-        Console.Write("Tien lai khi gui [{0}] trong vong [{1}] thang voi lai suat [{2}%] la: {3} VND",monney, month, BankInterestRate,profit);
+            for (int i=0; i<month; i++)
+            {
+                profit += Math.Round(monney*((BankInterestRate/100)/12),2);
+            }
+            
+            Console.Write("Tien lai khi gui [{0}] trong vong [{1}] thang voi lai suat [{2}%] la: {3} VND",monney, month, BankInterestRate,profit);
           
         }
     }
